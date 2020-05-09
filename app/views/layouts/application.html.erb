@@ -11,8 +11,28 @@
 
   <body>
     <nav>
-    <%= link_to "view all", items_path%>
+      <li><%= link_to "view all", items_path%></li>
+      <ul>
+       
+          <% if user_signed_in? %>
+             <li><%=link_to "Sign out", destroy_user_session_path, method: :delete  %></li>
+          <%else %>
+              <li><%= link_to "Sign In",new_user_session_path %></li>
+          <% end %>
+        </ul>
+         <ul>
+          <% if user_signed_in? %>
+          <li><%= link_to "Lets get started", items_path %></li>
+          <% end %>
+        </ul>
+     </ul>
   </nav>
+  <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>
+
+
+
