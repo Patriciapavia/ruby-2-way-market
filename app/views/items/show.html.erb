@@ -1,3 +1,6 @@
 
 <h1> Show </h1>
 <%=@item.title%>
+
+<%= link_to "Edit", edit_items_path(@item)%>
+<%= link_to 'Delete', @item, method: :delete, data: { confirm: 'Are you sure?' } %>

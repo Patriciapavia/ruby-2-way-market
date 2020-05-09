@@ -21,8 +21,23 @@ class ItemsController < ApplicationController
 
   def show
     
-    
 
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to items_path
+    else
+      render "edit"
+    end
+    
+  end
+
+  def destroy
+  Item.find(params[:id]).destroy
+      redirect_to items_path
+      
+    
   end
 
 
