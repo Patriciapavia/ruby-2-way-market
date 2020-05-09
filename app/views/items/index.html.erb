@@ -3,6 +3,8 @@
 
 <% @items.each do |item|%>
  <ul>
-	<li><%= item.title %></li>
+	<li><%=link_to item.title, item_path(item.id)%></li>
  </ul>
+
 <%end%>
+<%= link_to "Add item", new_items_path %>
