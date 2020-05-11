@@ -1,0 +1,15 @@
+<h1>Items#index</h1>
+<h1 class="current-category"> <%= params[:category]%></h1>
+<% if @items.count == 0%>
+    <h1>There are no items currently in this category</h1>
+     <% else %>
+
+     <% @items.each do |item|%>
+ <ul>
+ 
+	<li><%=link_to item.title, item_path(item.id)%></li>
+
+ </ul>
+<%end%>
+<%end%>
+<%= link_to "Add item", new_items_path %>
