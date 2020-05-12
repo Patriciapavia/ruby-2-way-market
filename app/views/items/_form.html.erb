@@ -1,5 +1,8 @@
 
 <%= form_with model: item, local: true do |form| %>
+<div>
+  <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select category") %>
+</div>
   <div>
   	<%= form.label :title %>
   	<%= form.text_field :title, value: item.title %>

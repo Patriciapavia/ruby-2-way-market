@@ -7,10 +7,12 @@ class ItemsController < ApplicationController
 
   def new
   	 @item =  current_user.items.create
+     @categories = Category.all.map{ |c| [c.name, c.id] } 
   end
 
   def create
   	@item = current_user.items.create(item_params)
+     @item.category_id = params[:category_id]
   	if @item.save
   		redirect_to items_path
   	else
@@ -25,6 +27,7 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @categories = Category.all.map{ |c| [c.name, c.id] }
     if @item.update(item_params)
       redirect_to items_path
     else
@@ -33,9 +36,15 @@ class ItemsController < ApplicationController
     
   end
 
+
+   def edit
+    @categories = Category.all.map{ |c| [c.name, c.id] }
+     
+   end
+   
   def destroy
   Item.find(params[:id]).destroy
-      redirect_to items_path
+   redirect_to items_path
       
     
   end
@@ -49,7 +58,7 @@ class ItemsController < ApplicationController
 
 
    def item_params
-   	params.require(:item).permit(:title, :description, :size, :color, :price)
+   	params.require(:item).permit(:title, :description, :size, :color, :price, :category)
    	
    end
 

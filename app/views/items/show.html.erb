@@ -2,6 +2,7 @@
 <h1> Show </h1>
 
 <%=@item.title%>
+<%=@item.category.name%>
 
 <% if user_signed_in? %>
   <% if @item.user_id == current_user.id %>
