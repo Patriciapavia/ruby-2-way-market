@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   patch "/items/:id", to: "items#update"
   delete "/items/:id", to: "items#destroy"
   get "/items/:id/edit", to: "items#edit", as: "edit_items"
-  
+  post '/comment', to: 'comment#create', as: 'create_comment'
   
 end
