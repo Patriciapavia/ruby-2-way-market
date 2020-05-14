@@ -1,0 +1,18 @@
+<h1>Cart#show</h1>
+
+
+<% @order_items.each do |orderitem| %>
+
+    <h3><%= orderitem.item.title %></h3>
+    <h5><%= orderitem.item.price %></h5>
+
+
+   
+    <h2>Subtotal: <%= orderitem.total %></h2>
+
+<% end %>
+
+
+
+
+<h3>Your current card value has a subtotal of: <%= current_order.subtotal %></h3>

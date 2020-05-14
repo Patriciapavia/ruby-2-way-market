@@ -4,14 +4,18 @@ before_action :authenticate_user!
 
   def index
   	@items = Item.all
+    @order_items = current_order.order_items.new
   end
 
   def new
   	 @item =  current_user.items.create
+      #@oder_items = OrderItem.current_order.order_item.new
+     
      @categories = Category.all.map{ |c| [c.name, c.id] } 
   end
 
   def create
+   # @oder_items = OrdertIem.current_order.order_item.create(item_params)
   	@item = current_user.items.create(item_params)
      @item.category_id = params[:category_id]
   	if @item.save
@@ -25,6 +29,8 @@ before_action :authenticate_user!
   def show
     
    @comments = Comment.all
+   
+   @order_item = current_order.order_items.new
   end
 
   def update
@@ -59,7 +65,7 @@ before_action :authenticate_user!
 
 
    def item_params
-   	params.require(:item).permit(:title, :description, :size, :color, :price, :category)
+   	params.require(:item).permit(:title, :description, :size, :color, :price, :category, :quantity, :order_item_id)
    	
    end
 
