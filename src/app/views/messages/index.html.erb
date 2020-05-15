@@ -1,0 +1,26 @@
+<h1 class="title is-4">Message <%= @conversation.recipient.email %></h1>
+
+<% if @over_ten %>
+  <%= link_to "Show previous", '?m=all', class:'button is-link' %>
+<% end %>
+
+<section id="messages" class="mb4">
+  <% @messages.each do |message| %>
+    <% if message.body %>
+    <ul>
+      <% user = User.find(message.user_id) %>
+        <li><%= user.email %> </li>
+       <li> <%= message.message_time %></li>
+       <li> <%= message.body %></li>
+      </ul>
+    <% end %>
+  <% end %>
+</section>
+
+<%= form_for [@conversation, @message] do |f| %>
+  <%= f.text_area :body, class: "textarea", placeholder: "Inquire about a trade..." %>
+  <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+  <div class="text-align-right">
+    <%= f.submit "Send message", class: "button is-link is-large mt3" %>
+  </div>
+<% end %>

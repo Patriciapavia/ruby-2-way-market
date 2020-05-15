@@ -6,10 +6,11 @@
 	<li><%=link_to item.title, item_path(item.id)%></li>
     <li><%=item.price%></li>
  </ul>
-
  
 
  <% end %>
+
+ <%= link_to "Add item", new_items_path %>
 
 
   

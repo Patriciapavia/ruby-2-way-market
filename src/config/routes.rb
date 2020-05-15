@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
-  
+  resources :conversations do
+    resources :messages
+  end
   devise_for :users
   root 'page#home'
   # root 'items#index'
@@ -19,5 +21,9 @@ Rails.application.routes.draw do
   put "/order_items/:id", to: "order_items#update"
   patch "/order_items/:id", to: "order_items#update"
   get "/cards/", to: "cards#show", as: "cards"
-  
+
+  # get "/conversations", to: "conversations#index", as: "conversations"
+  # post "/conversations", to: "conversations#create"
+  # get "/messages", to: "messages#index", as: "conversation_messages"
+  # post '/messages', to: 'messages#create', as: 'create_messages'
 end
