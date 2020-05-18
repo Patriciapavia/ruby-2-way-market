@@ -4,5 +4,6 @@ class Item < ApplicationRecord
 	has_many :order_items, dependent: :destroy
 	has_many :comments, dependent: :destroy
 	validates :title, presence: true
+	has_one_attached :image
 	
 end

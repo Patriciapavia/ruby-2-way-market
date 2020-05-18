@@ -5,6 +5,13 @@ before_action :authenticate_user!
   def index
   	@items = Item.all
     @order_items = current_order.order_items.new
+    if params[:category].blank?
+    @items = Item.all
+  else
+    @category_id = Category.find_by(name: params[:category]).id
+      @items = Item.where(:category_id => @category_id)
+   end
+
   end
 
   def new
@@ -34,7 +41,7 @@ before_action :authenticate_user!
   end
 
   def update
-    @categories = Category.all.map{ |c| [c.name, c.id] }
+     @item.category_id = params[:category_id] 
     if @item.update(item_params)
       redirect_to items_path
     else
@@ -65,7 +72,7 @@ before_action :authenticate_user!
 
 
    def item_params
-   	params.require(:item).permit(:title, :description, :size, :color, :price, :category, :quantity, :order_item_id)
+   	params.require(:item).permit(:title, :description, :size, :color, :price, :category, :quantity, :order_item_id, :image)
    	
    end
 
