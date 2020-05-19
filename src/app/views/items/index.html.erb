@@ -4,8 +4,8 @@
 <h1>Category</h1>
    <% Category.all.each do |category| %>
    <li class="<%'active' if params[:category ] == category.name%>">
-    <%= link_to category.name, items_path(category: category.name), class: "link"%>        
-  <% end %>
+   <%= link_to category.name, items_path(category: category.name), class: "link"%>
+ <% end %> 
 
 <h1 class="current-category"> <%= params[:category]%></h1>
 <% if @items.count == 0%>
@@ -13,6 +13,7 @@
  <% else %> 
     
  <div class="items">
+ 
    <% @items.each do |item|%> 
       <div class="item">
              <div class="info">
@@ -22,13 +23,14 @@
             <% end %>
               <a><%= link_to item.category.name, item_path(item.id),  class: "a-primary" %></a>
               <p><%= link_to item.title, item_path(item.id),  class: "a-primary" %> </p>
-              <p><%= link_to number_to_currency(item.price), item_path(item.id), class: "a-primary"%></p>
+              <p><%= link_to number_to_currency(item.price), item_path(item.id), class: "a-primary price"%></p>
+              
            </div>
           </div>
       </div>
 <% end %>
+<% end %>
 
- <% end %>
 
   
 <h1> <%= link_to "Add item", new_items_path %></h1>

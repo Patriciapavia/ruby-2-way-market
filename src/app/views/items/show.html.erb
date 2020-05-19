@@ -19,7 +19,7 @@
         <h2> <%=@item.title%></h2>
         <p> <%=@item.description%></p>
         <br>
-        <br>
+
         <br>
          <h4 class="text-muted">Size: <%=@item.size%></h4>
        <%= form_with model: @order_item, url: create_order_items_path, local: true, method: "post" do |form| %>
@@ -29,18 +29,134 @@
      
      
      <button type="button" class="btn btn-secondary"><i class="fa fa-shopping-cart" style="font-size:20px;color:white">  <%= form.submit"Add to cart"%></i></button>
+     
+     <br>
+     <br>
+     
+     <button type="button" class="btn btn-info btn-lg "><i class="fa fa-shopping-cart" style="font-size:20px;color:white"><%= link_to " Your current cart", cards_path, class: "cart"%> </i></button>
       <% end %>
-   
-    </div>
-  </div>
+      <br>
+      <br>
+    <% if user_signed_in? && current_user.id != @item.user_id %>
+      <button type="button" class="btn btn-info btn-lg "><%= link_to "Message #{@item.user.email}", conversations_path(sender_id: current_user.id, recipient_id: @item.user.id), method: 'post', class:"button is-link", class: "cart" %></button>
+    <% elsif user_signed_in? && current_user.id == @item.user_id  %>
+      <%= link_to "Conversations", conversations_path %>
+    <% else %>
 
+    <%= link_to "Sign up to message #{@item.user.email}", new_user_registration_path %>
+    <% end %>
+    </div>
+
+  </div>
 </div>
+<br>
+<br>
+
+
+
 </section>
 
 
+<section>
+  <h2 class="display-4 text-center py-5 my-4">Description</h2>
+  <nav class="nav justify-content-center nav-pills flex-column flex-md-row">
+    <a class="nav-link active" href="#first" data-toggle="tab">first</a>
+    <a class="nav-link" href="#second" data-toggle="tab">Second</a>
+    <a class="nav-link" href="#third" data-toggle="tab" >third</a>
+    <a class="nav-link" href="#fourth" data-toggle="tab" >fourth</a>
+  </nav>
+   <div class="tab-content py-5">
+     <div class="tab-pane active"id="first">
+       <h3>first</h3>
+       <p>ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+     </div>
+   </div>
 
+   <div class="tab-content py-5">
+     <div class="tab-pane"id="second">
+       <h3>second</h3>
+       <p>ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+     </div>
+   </div>
 
+   <div class="tab-content py-5">
+     <div class="tab-pane"id="third">
+       <h3>third</h3>
+       <p>ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+     </div>
+   </div>
 
+   <div class="tab-content py-5">
+     <div class="tab-pane"id="fourth">
+       <h3>fourth</h3>
+       <p>ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+     </div>
+   </div>
+</section>
+
+<section>
+   
+ <h1>You may also like</h1>
+   <% Item.where(category_id:@item.category.id).each do |item| %>
+   
+  <%if item.id != @item.id %>
+   <div class="item">
+       <div class="info">
+     <div class="info-bar">
+       <%= link_to item_path(item.id)do %>
+            <%= image_tag item.image if item.image.attached?  %>  
+            <% end %>
+              <a><%= link_to item.category.name, item_path(item.id),  class: "a-primary" %></a>
+              <p><%= link_to item.title, item_path(item.id),  class: "a-primary" %> </p>
+              <p><%= link_to number_to_currency(item.price), item_path(item.id), class: "a-primary"%></p>
+              
+           </div>
+          </div>
+      </div>
+
+<%end%>
+ <% end %> 
+</section>
+
+<section>
+<div class="container text-center">
+
+  <%= form_with model: @comment, url: create_comment_path, local: true, method: "post" do |form| %>
+
+    <h3><%= form.label :"Enter your comment here"%></h3>
+    
+    <%= form.text_field :text_field, class: "text-area" %>
+    <br>
+    <%= form.hidden_field :item_id, :value => @item.id %>
+
+    <%= submit_tag "submit", class: "sub" %>
+  </div>
+</div>
+
+<% end %>
+  
+  
+ <div class="container text-center">
+ <h3> Comments </h3>
+<% @comments.each do |comment| %>
+ <div class="row">
+    <div class="col">
+
+    <% if comment.item_id == @item.id %>
+     
+        <h4 class="mx-3"> comment From<%= User.find(comment.user_id).email %> </h4>
+    
+       <h6  class="mx-3"> <%= comment.text_field %> :</h6>
+       <p  class="mx-3" ><%= comment.created_at %> </p>
+    <br>
+    <br>
+    <% end %> 
+<% end %>
+</div>
+</div>
+</div>
+   
+</section>
 
 
 
@@ -53,25 +169,11 @@
 <%end%>
 
 
-<%= form_with model: @comment, url: create_comment_path, local: true, method: "post" do |form| %>
-
-    <%= form.label :"Enter your comment here"%>
-    <%= form.text_field :text_field %>
-    
-    <%= form.hidden_field :item_id, :value => @item.id %>
-    <%= submit_tag "submit" %>
-
-  
-<% end %>
 
 
- <%= link_to "#{current_order.order_items.size} items with a value of #{current_order.subtotal }$", cards_path%>
 
+ 
 <br>
-
-
-
-
 <br>
 <br>
 
@@ -80,30 +182,9 @@
 
 
 
-<% if user_signed_in? && current_user.id != @item.user_id %>
-      <%= link_to "Message #{@item.user.email}", conversations_path(sender_id: current_user.id, recipient_id: @item.user.id), method: 'post', class:"button is-link" %>
-    <% elsif user_signed_in? && current_user.id == @item.user_id  %>
-      <%= link_to "Conversations", conversations_path %>
-    <% else %>
-
-    <%= link_to "Sign up to message #{@item.user.email}", new_user_registration_path %>
-    <% end %>
 
 
 
-
-
-<h3> Comments </h3>
-<% @comments.each do |comment| %>
-    <% if comment.item_id == @item.id %>
-     <ul class ="comment-list">
-        <li> <%= User.find(comment.user_id).email %> </li>
-    
-       <li> <%= comment.text_field %> </li>
-       <li> <%= comment.created_at %> </li>
-    </ul>
-    <% end %> 
-<% end %>
 
 
 

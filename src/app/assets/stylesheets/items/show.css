@@ -19,3 +19,24 @@ img{
 .price{
  color:#ff6500;
 }
+
+.cart{
+ 
+  color: white;
+
+}
+.text-area{
+	padding: 3rem 15rem 0 0;
+	box-shadow: 7px 1px 7px lightblue;
+}
+
+.sub{
+
+}
+
+
+
+.col{
+   box-shadow: 7px 1px 7px lightgrey;
+
+}

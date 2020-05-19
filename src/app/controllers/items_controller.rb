@@ -34,7 +34,11 @@ before_action :authenticate_user!
   end
 
   def show
-    
+
+   
+
+   @items = Item.where(:category_id => @category_id)
+   
    @comments = Comment.all
    
    @order_item = current_order.order_items.new
