@@ -17,9 +17,12 @@
       <div class="item">
              <div class="info">
             <div class="info-bar">
-            <%= image_tag item.image if item.image.attached? %>   
-               <h4><%= link_to "#{item.title} #{number_to_currency(item.price)}", item_path(item.id) %> </h4>
-            
+            <%= link_to item_path(item.id)do %>
+            <%= image_tag item.image if item.image.attached?  %>  
+            <% end %>
+              <a><%= link_to item.category.name, item_path(item.id),  class: "a-primary" %></a>
+              <p><%= link_to item.title, item_path(item.id),  class: "a-primary" %> </p>
+              <p><%= link_to number_to_currency(item.price), item_path(item.id), class: "a-primary"%></p>
            </div>
           </div>
       </div>

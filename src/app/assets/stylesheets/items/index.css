@@ -1,6 +1,6 @@
 img {
     width: 280px;
-    height: 300px;
+    height: 270px;
 
 }
 
@@ -12,32 +12,36 @@ img {
 }
 
 .item {
-    border-radius: 20px;
+    
     box-shadow: 7px 1px 7px lightgrey;
     width: 300px;
     position: relative;
-    
     margin-bottom: 50px;
     background-color:#f0f0f0;
+    text-align: center;
+
+
 }
 
-img {
-    border-radius: 20px 20px 0px 0px;
-}
 
 .info {
     padding: 10px;
-    a {
+    a{
         text-decoration: none;
         color: black;
         font-size: 100px;
     }
     
     .info-bar {
+        text-decoration: none;
         display: flex;
         justify-content: space-between;
-        font-size: 14px;
-        color: darkgrey;
+       
+       
     }
 }
 
+.a-primary{
+ text-decoration: none;
+ color: #333;
+}

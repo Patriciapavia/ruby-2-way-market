@@ -1,9 +1,48 @@
 
-<h1> Show </h1>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+<section>
+<div class="container">
+  <div class="row">
+   <div class="col-sm-6">
+      <%= image_tag(@item.image) if @item.image.attached? %>
+    </div>
+    <div class="col">
+      <br>
+      <br>
+      <br>
+      
+      <h3 class="text-muted"><%=@item.category.name%></h3>
+      <h4 class="text-muted"><%=@item.color%></h4>
+       <h2 class="price"> <%=@item.price%></h2>
+        <h2> <%=@item.title%></h2>
+        <p> <%=@item.description%></p>
+        <br>
+        <br>
+        <br>
+         <h4 class="text-muted">Size: <%=@item.size%></h4>
+       <%= form_with model: @order_item, url: create_order_items_path, local: true, method: "post" do |form| %>
+      <%= form.hidden_field :item_id, :value => @item.id%>
+      <%= form.number_field :quantity, :value => 1, :min =>  1%>
+      <%= form.hidden_field :user_id, :value => current_user.id%>
+     
+     
+     <button type="button" class="btn btn-secondary"><i class="fa fa-shopping-cart" style="font-size:20px;color:white">  <%= form.submit"Add to cart"%></i></button>
+      <% end %>
+   
+    </div>
+  </div>
 
-<%=@item.title%>
-<%= image_tag(@item.image) if @item.image.attached? %>
-<%=@item.category.name%>
+</div>
+</section>
+
+
+
+
+
+
+
 
 
 <% if user_signed_in? %>
@@ -25,17 +64,6 @@
   
 <% end %>
 
-
-
-
-
-<%= form_with model: @order_item, url: create_order_items_path, local: true, method: "post" do |form| %>
-   
-  <%= form.hidden_field :item_id, :value => @item.id%>
-    <%= form.number_field :quantity, :value => 1, :min =>  1%>
-    <%= form.hidden_field :user_id, :value => current_user.id%>
-     <%= form.submit "Add to Cart "%>
-      <% end %>
 
  <%= link_to "#{current_order.order_items.size} items with a value of #{current_order.subtotal }$", cards_path%>
 
