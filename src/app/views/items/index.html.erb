@@ -1,35 +1,127 @@
 
-<body>
-<h1>All Items</h1>
-<h1>Category</h1>
-   <% Category.all.each do |category| %>
-   <li class="<%'active' if params[:category ] == category.name%>">
-   <%= link_to category.name, items_path(category: category.name), class: "link"%>
- <% end %> 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+   
+    <title>Greatdeal | index </title>
+  </head>
+  <body>
 
-<h1 class="current-category"> <%= params[:category]%></h1>
-<% if @items.count == 0%>
-  <h1>There are no items currently in this category</h1>
- <% else %> 
+<section>
+
+  <h2 style="text-align:center">Welcome to Greatdeal</h2>
+
+   <div class="container">
+  <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+    <img src="/assets/sliceshow.jpg" style="width:100%">
+   
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+    <img src="/assets/sliceshow1.jpeg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+    <img src="/assets/sliceshow2.jpg" style="width:100%">
+  </div>
     
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+    <img src="/assets/sliceshow3.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 6</div>
+    <img src="/assets/sliceshow4.jpg" style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">6 / 6</div>
+    <img src="/assets/sliceshow5.jpg" style="width:100%">
+  </div>
+    
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="/assets/sliceshow.jpg" style="width:100%"> style="width:100%" >
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="/assets/sliceshow1.jpeg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+    </div>
+    <div class="column">
+      <img class="demo cursor"  src="/assets/sliceshow2.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+    </div>
+    <div class="column">
+      <img class="demo cursor"  src="/assets/sliceshow3.jpg" onclick="currentSlide(4)" alt="Northern Lights">
+    </div>
+    <div class="column">
+      <img class="demo cursor"  src="/assets/sliceshow4.jpg" onclick="currentSlide(5)" alt="Nature and sunrise">
+    </div>    
+    <div class="column">
+      <img class="demo cursor"  src="/assets/sliceshow5.jpg" onclick="currentSlide(6)" alt="Snowy Mountains">
+    </div>
+  </div>
+</div>
+
+</section>
+
+<section>
+
+<div>
+
+<ul>
+<li><%=link_to "View All", items_path%></li>
+   <% Category.all.each do |category| %>
+ 
+   <li class="<%'active' if params[:category ] == category.name%>">
+   <%= link_to category.name, items_path(category: category.name)%>
+   </li>
+  
+ <% end %> 
+ 
+  </ul>
+  <% params[:category]%>
+  <% if @items.count == 0%>
+   <p>There are no items currently in this category</p>
+ <% else %> 
+ </div>  
+
+
  <div class="items">
  
-   <% @items.each do |item|%> 
-      <div class="item">
-             <div class="info">
-            <div class="info-bar">
-            <%= link_to item_path(item.id)do %>
-            <%= image_tag item.image if item.image.attached?  %>  
-            <% end %>
-              <a><%= link_to item.category.name, item_path(item.id),  class: "a-primary" %></a>
-              <p><%= link_to item.title, item_path(item.id),  class: "a-primary" %> </p>
-              <p><%= link_to number_to_currency(item.price), item_path(item.id), class: "a-primary price"%></p>
-              
-           </div>
-          </div>
-      </div>
+ <% @items.each do |item|%> 
+    <div class="item">
+           <div class="info">
+          <div class="info-bar">
+          <%= link_to item_path(item.id)do %>
+          <%= image_tag item.image if item.image.attached?  %>  
+          <% end %>
+            <a><%= link_to item.category.name, item_path(item.id),  class: "a-primary" %></a>
+            <p><%= link_to item.title, item_path(item.id),  class: "a-primary" %> </p>
+            <p><%= link_to number_to_currency(item.price), item_path(item.id), class: "a-primary price"%></p>
+            
+         </div>
+        </div>
+    </div>
 <% end %>
 <% end %>
+
+</section>
+
+
+
+ 
 
 
   
@@ -38,5 +130,16 @@
 
 
 
-</body>
+  </body>
+
+ 
+  </html>
+
+
+
+
+
+
+
+
 

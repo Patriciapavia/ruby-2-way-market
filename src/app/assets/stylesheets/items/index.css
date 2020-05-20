@@ -1,47 +1,162 @@
-img {
-    width: 280px;
-    height: 270px;
+/*   sliceshow section
 
+
+
+
+
+
+
+
+/* Position the image container (needed to position the left and right arrows) */
+* {
+  box-sizing: border-box;
 }
 
+img {
+  vertical-align: middle;
+}
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+
+/* category section*/
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #c89f7f;
+}
+
+li {
+  float: left;
+  border-right: 1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 70px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: lightgrey;
+
+  .active {
+    background-color: #4caf50;
+  }
+}
+/*end category section*/
+
 .items {
-    display: flex;
-    justify-content: space-around;
-    padding: 0px 100px 0px 100px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-around;
+  padding: 0px 100px 0px 100px;
+  flex-wrap: wrap;
 }
 
 .item {
-    
-    box-shadow: 7px 1px 7px lightgrey;
-    width: 300px;
-    position: relative;
-    margin-bottom: 50px;
-    background-color:#f0f0f0;
-    text-align: center;
-
-
+  box-shadow: 7px 1px 7px lightgrey;
+  width: 300px;
+  position: relative;
+  margin-bottom: 50px;
+  background-color: #f0f0f0;
+  text-align: center;
 }
-
 
 .info {
-    padding: 10px;
-    a{
-        text-decoration: none;
-        color: black;
-        font-size: 100px;
-    }
-    
-    .info-bar {
-        text-decoration: none;
-        display: flex;
-        justify-content: space-between;
-       
-       
-    }
+  padding: 10px;
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 100px;
+  }
+
+  .info-bar {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
-.a-primary{
- text-decoration: none;
- color: #333;
+.a-primary {
+  text-decoration: none;
+  color: #333;
 }
