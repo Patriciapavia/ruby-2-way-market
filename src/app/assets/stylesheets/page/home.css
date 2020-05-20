@@ -6,9 +6,9 @@
   background-size: cover;
   position: relative;
   text-shadow: 2px 2px grey;
-  color: burlywood;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 25px;
+  color: whitesmoke;
+  font-family: "Anton", sans-serif;
+  font-size: 2rem;
   margin-top: -10rem;
   font-weight: 900;
 }
@@ -25,20 +25,28 @@
   right: 16px;
 }
 .topright-link {
-  color: burlywood;
+  color: whitesmoke;
 }
 
 .middle {
   position: absolute;
-  top: 30%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
 }
+.middle h1 {
+  font-size: 5rem;
+  color: whitesmoke;
+}
+.middle h3 {
+  font-size: 3rem;
+  color: whitesmoke;
+}
 
 .middle-bottom {
   position: absolute;
-  bottom: 30%;
+  bottom: 5%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -54,20 +62,11 @@ hr {
 }
 
 @media screen and (max-width: 768px) {
-  .bgimg {
-    background-image: url("/assets/online1.jpg");
-    background-size: cover;
-    width: 100%;
-    position: relative;
-    text-shadow: 2px 2px grey;
-    color: burlywood;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 15px;
-    margin-top: -10rem;
+  .middle h1 {
+    font-size: 3rem;
   }
-  .middle h1,
   .middle h3 {
-    font-size: 30px;
+    font-size: 2.5rem;
   }
 }
 
@@ -105,7 +104,7 @@ hr {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: center;
-  color: burlywood;
+  color: #df8a76;
 }
 
 /* footer*/
@@ -131,13 +130,17 @@ hr {
 .has-magin-top,
 .has-magin-top a {
   margin-top: 3rem;
-  color: burlywood;
+  color: #df8a76;
   font-weight: 700;
 }
 
 footer {
   margin-top: 10rem;
   background-color: #faf0e6;
+}
+.copyright {
+  text-align: center;
+  color: #df8a76;
 }
 
 @media screen and (max-width: 768px) {
