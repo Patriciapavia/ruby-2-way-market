@@ -24,7 +24,7 @@ before_action :authenticate_user!
   def create
    # @oder_items = OrdertIem.current_order.order_item.create(item_params)
   	@item = current_user.items.create(item_params)
-     @item.category_id = params[:category_id]
+     #@item.category.id = params[:category_id]
   	if @item.save
   		redirect_to items_path
     else
@@ -46,7 +46,7 @@ before_action :authenticate_user!
   end
 
   def update
-     @item.category_id = params[:category_id] 
+     
     if @item.update(item_params)
       redirect_to items_path
     else
@@ -77,7 +77,7 @@ before_action :authenticate_user!
 
 
    def item_params
-   	params.require(:item).permit(:title, :description, :size, :color, :price, :category, :quantity, :order_item_id, :image)
+   	params.require(:item).permit(:title, :description, :size, :color, :price, :category_id, :quantity, :order_item_id, :image)
    	
    end
 
