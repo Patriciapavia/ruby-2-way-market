@@ -145,7 +145,7 @@ Devise is a Ruby gem which provides a flexible authentication solution. In great
 One of the most important functions of Devise is to make the 'current_user' variable available, which makes it much easier to attach other objects such as listings, addresses, and images to a specific user. 'current_user' can also be used to display different information to different users depending on which user is logged in.
 
 PostgreSQL
-PostgreSQL was the databased used for MTG-marketplace. PostgreSQL is a free, open-source, relational database. PostgreSQL can be easily integrated with a rails application when the application is created by typing.
+PostgreSQL was the databased used for greatdeal-marketplace. PostgreSQL is a free, open-source, relational database. PostgreSQL can be easily integrated with a rails application when the application is created by typing.
 
 rails new project_name -d postgresql
 
