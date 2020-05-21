@@ -47,7 +47,7 @@ The purpose of building this app is to facilitate interaction between providers 
 
 # user stories for my app
 
-1. As a player, I want to be able to buy individual product, so I don't have to go shoping.
+1. As a seller, I want to be able to buy individual product, so I don't have to go shoping.
 
 Implication: users should be able to view the details of individual product before purchase, rather than buying without knowing the identity of the product.
 
