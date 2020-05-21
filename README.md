@@ -46,12 +46,14 @@ The purpose of building this app is to facilitate interaction between providers 
 # Side map
 ![sitemap](docs/sitemap.png)
 
-# ERD
+# Wireframe
 ![sitemap](docs/wireframeidex.png)
 ![sitemap](docs/wireframeindex.png)
 ![sitemap](docs/wirerframeshow.png)
-![sitemap](docs/wirerfameshow.png)
+![sitemap](docs/wireframeshow.png)
 
+# ERD
+![sitemap](docs/rails erd.jpg)
 
 # user stories for my app
 
