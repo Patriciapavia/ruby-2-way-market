@@ -45,6 +45,8 @@ before_action :authenticate_user!
    @order_item = current_order.order_items.new
   end
 
+
+
   def update
      
     if @item.update(item_params)
@@ -52,8 +54,10 @@ before_action :authenticate_user!
     else
       render "edit"
     end
-    
-  end
+end
+
+
+
 
 
    def edit

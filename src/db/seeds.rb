@@ -9,6 +9,7 @@
 
 Category.create(name: "Men's")
 Category.create(name: "Women's")
+Category.create(name: "Kid's")
 Category.create(name: "Accessory")
 Category.create(name: "Boots")
 Category.create(name: "Heels")

@@ -131,7 +131,6 @@ The following third-party services were used either in the development or the ru
 
 Devise gem
 Stripe and stripe gem
-Amazon S3
 PostgreSQL
 Heroku
 
