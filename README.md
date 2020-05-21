@@ -53,7 +53,7 @@ The purpose of building this app is to facilitate interaction between providers 
 ![sitemap](docs/wireframeshow.png)
 
 # ERD
-![sitemap](docs/railserd.jpg)
+![sitemap](docs/erd.png)
 
 # user stories for my app
 
