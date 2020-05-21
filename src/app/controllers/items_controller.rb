@@ -27,7 +27,8 @@ before_action :authenticate_user!
      @item.category_id = params[:category_id]
   	if @item.save
   		redirect_to items_path
-  	else
+    else
+      @categories = Category.all.map{ |c| [c.name, c.id] } 
   		render "new"
   	end
 
