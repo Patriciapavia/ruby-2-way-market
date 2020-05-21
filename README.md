@@ -43,7 +43,8 @@ The purpose of building this app is to facilitate interaction between providers 
 - HTML
 - CSS
 - Heroku
-
+# Side map
+![sitemap](docs/sitemap.pdf)
 
 # user stories for my app
 
