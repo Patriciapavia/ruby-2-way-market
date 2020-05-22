@@ -1,3 +1,10 @@
+<style type="text/css">
+	img{
+		width:250px;
+		height: 300px;
+	}
+</style>
+
 <h1>Cart#show</h1>
 
 
@@ -5,8 +12,9 @@
 
     <h3><%= orderitem.item.title %></h3>
     <h5><%= orderitem.item.price %></h5>
-
-
+    <%= image_tag orderitem.item.image if orderitem.item.image.attached?  %>  
+        
+      
    
     <h2>Subtotal: <%= orderitem.total %></h2>
 
@@ -16,3 +24,5 @@
 
 
 <h3>Your current card value has a subtotal of: <%= current_order.subtotal %></h3>
+
+<%=link_to"Back", items_path%>

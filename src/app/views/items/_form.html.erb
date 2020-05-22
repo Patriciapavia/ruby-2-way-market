@@ -12,8 +12,8 @@
 <% end %>
 <%= form_with model: item, local: true do |form| %>
 <div>
-  <%= form.select(:category_id, options_for_select(@categories), :prompt => "Select category") %>
   
+  <%= form.select :category_id, @categories %>
 </div>
   <div>
   	<%= form.label :title %>

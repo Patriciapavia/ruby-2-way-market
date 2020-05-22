@@ -7,12 +7,12 @@
 <section id="messages" class="mb4">
   <% @messages.each do |message| %>
     <% if message.body %>
-    <ul>
+   
       <% user = User.find(message.user_id) %>
-        <li><%= user.email %> </li>
-       <li> <%= message.message_time %></li>
-       <li> <%= message.body %></li>
-      </ul>
+        <%= user.email %> <br>
+        <%= message.message_time %><br>
+        <%= message.body %>
+      
     <% end %>
   <% end %>
 </section>
