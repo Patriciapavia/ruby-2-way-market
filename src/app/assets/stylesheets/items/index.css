@@ -112,15 +112,16 @@ li a {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 70px;s
+  padding: 14px 70px;
   text-decoration: none;
 }
 
 li a:hover:not(.active) {
   background-color: lightgrey;
 
-  
-}
+  .active {
+    background-color: #4caf50;
+  }
 /*end category section*/
 
 .items {
