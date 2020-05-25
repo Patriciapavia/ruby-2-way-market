@@ -147,6 +147,7 @@ GEM
     pg (1.2.3)
     pg (1.2.3-x64-mingw32)
     pg (1.2.3-x86-mingw32)
+    pgreset (0.1.1)
     public_suffix (4.0.4)
     puma (4.3.3)
       nio4r (~> 2.0)
@@ -302,6 +303,7 @@ DEPENDENCIES
   jquery-rails (~> 4.4)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
+  pgreset
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.2)
   sass-rails (>= 6)
